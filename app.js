@@ -33,8 +33,13 @@ new Vue({
 
   methods: {
     submitForm () {
-      // this.$v.form.$touch()
-      // const formIsValid = this.nameIsValid && this.ageIsValid;
+
+      // this.$v.form.name.$touch();
+      // this.$v.form.age.$touch();
+
+      this.$v.form.$touch();
+      // this.$v.$touch();
+
       if (!this.$v.form.$invalid) {
         console.log('📝 Form Submitted', this.form)
       } else {
