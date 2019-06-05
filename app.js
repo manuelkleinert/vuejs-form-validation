@@ -36,8 +36,16 @@ new Vue({
   },
 
   methods: {
-    submitForm () {
+    shouldAppendValidClass (field) {
+      return !field.$invalid && field.$model && field.$dirty;
+    },
 
+    shouldAppendErrorClass (field) {
+      return !field.$error;
+    },
+
+
+    submitForm () {
       // this.$v.form.name.$touch();
       // this.$v.form.age.$touch();
 
