@@ -1,7 +1,7 @@
 Vue.use(vuelidate.default);
 
-// const pizzaOrBurger = value => value === 'pizza' || value === 'burger' || !validators.helpers.req(value)
-// const oldEnoughAndAlive = validators.between(12, 120)
+const pizzaOrBurger = value => value === 'pizza' || value === 'burger' || !validators.helpers.req(value);
+const oldEnoughAndAlive = validators.between(12, 120);
 
 new Vue({
   el: '#app',
@@ -24,13 +24,18 @@ new Vue({
       age: {
         required: validators.required,
         integer: validators.integer,
-        between: validators.between(12, 120),
+        oldEnoughAndAlive,
+        // between: validators.between(12, 120),
         // min: validations.min(12),
         // max: validations.max(120),
       },
 
       email: {
         email:validators.email
+      },
+
+      food: {
+        pizzaOrBurger,
       }
     }
   },
