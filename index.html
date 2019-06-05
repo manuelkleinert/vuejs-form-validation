@@ -37,6 +37,14 @@
     </div>
 
     <div class="form-group">
+      <label for="newsletter">Newsletter:</label>
+
+      <input v-model="form.newsletter"
+            type="checkbox"
+             id="newsletter">
+    </div>
+
+    <div class="form-group">
       <label for="email">Email:</label>
 
       <input v-model="form.email"
@@ -45,10 +53,12 @@
              id="email">
 
       <p v-if="!$v.form.email.email && $v.form.email.$error" class="error-message">The email field is invalid</p>
+      <p v-if="!$v.form.email.required && $v.form.email.$error" class="error-message">E-Mail is required so we can send you the newsletter</p>
 
       <p>Invalid: {{$v.form.name.$invalid}} | Dirty: {{$v.form.name.$dirty}} | Error {{$v.form.name.$error}}</p>
     </div>
-    
+
+
     <div class="form-group">
       <label for="food">Pizza Or Burger:</label>
 
