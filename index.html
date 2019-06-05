@@ -33,6 +33,7 @@
              id="name">
 
       <p v-if="$v.form.name.$error" class="error-message">The name field is invalid</p>
+
       <p>Invalid: {{$v.form.name.$invalid}} | Dirty: {{$v.form.name.$dirty}} | Error {{$v.form.name.$error}}</p>
       <!-- $error === $invalid && $dirty -->
 
@@ -60,8 +61,25 @@
         <p v-else-if="!$v.form.age.integer" class="error-message">The age field should be an integer</p>
         <p v-else-if="!$v.form.age.between" class="error-message">Your should be at least 12 and younger then 120 to continue</p>
       </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+
+      <input v-model="form.email"
+             @blur="$v.form.email.$touch()"
+             :class="{error: $v.form.email.$error, valid: !$v.form.email.$invalid && form.email}"
+             id="email">
+
+      <p v-if="!$v.form.email.email && $v.form.email.$error" class="error-message">The email field is invalid</p>
+
+      <p>Invalid: {{$v.form.name.$invalid}} | Dirty: {{$v.form.name.$dirty}} | Error {{$v.form.name.$error}}</p>
+      <!-- $error === $invalid && $dirty -->
 
     </div>
+
+
 
     <div>
       <button>Submit</button>

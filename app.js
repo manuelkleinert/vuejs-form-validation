@@ -27,6 +27,10 @@ new Vue({
         between: validators.between(12, 120),
         // min: validations.min(12),
         // max: validations.max(120),
+      },
+
+      email: {
+        email:validators.email
       }
     }
   },
